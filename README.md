@@ -16,6 +16,7 @@ git clone https://github.com/ashtonwebster/meesh_autotest.git
 1) Install python dependencies
 
 sudo pip install requests
+
 sudo pip install lxml
 
 2) Figure out what id's you want.  
