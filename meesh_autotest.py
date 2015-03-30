@@ -2,6 +2,10 @@ from lxml import html
 import requests
 import os
 import errno
+import sys
+if (len(sys.argv) != 2):
+    print "usage: python meesh_autotest.py <lower_bound_id> <upper_bound_id>"
+    exit()
 
 url = "https://cmsc420.cs.umd.edu/meeshquest/part2/input/"
 try: 
@@ -11,7 +15,7 @@ except OSError:
     if not (os.path.isdir("input") | os.path.isdir("output")):
 	   raise
 
-for x in range(1, 10):
+for x in range(sys.argv[0], sys.argv[1]):
     page = requests.get('https://cmsc420.cs.umd.edu/meeshquest/part2/input/' + str(x), verify=False)
     tree = html.fromstring(page.text)
     filename = (tree.xpath('/html/body/div[2]/div/h4[1]/text()')[0].split("Uploaded As: ")[1])
