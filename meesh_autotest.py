@@ -3,19 +3,27 @@ import requests
 import os
 import errno
 import sys
-if (len(sys.argv) != 2):
+
+if (len(sys.argv) != 3):
     print "usage: python meesh_autotest.py <lower_bound_id> <upper_bound_id>"
     exit()
 
-url = "https://cmsc420.cs.umd.edu/meeshquest/part2/input/"
+url = "https://cmsc420.cs.umd.edud/meeshquest/part2/input/"
 try: 
     os.makedirs("input")
-    os.makedirs("output")
 except OSError:
-    if not (os.path.isdir("input") | os.path.isdir("output")):
+    if not (os.path.isdir("input")):
 	   raise
 
-for x in range(sys.argv[0], sys.argv[1]):
+try: 
+    os.makedirs("output")
+except OSError:
+    if not (os.path.isdir("output")):
+	   raise
+
+
+for x in range(int(sys.argv[1]), int(sys.argv[2])):
+    print "getting id " + str(x)
     page = requests.get('https://cmsc420.cs.umd.edu/meeshquest/part2/input/' + str(x), verify=False)
     tree = html.fromstring(page.text)
     filename = (tree.xpath('/html/body/div[2]/div/h4[1]/text()')[0].split("Uploaded As: ")[1])
@@ -34,5 +42,4 @@ for x in range(sys.argv[0], sys.argv[1]):
     f.write(output)
     f.close()
 
-#xmldoc = minidom.parseString(xml_str)
 
