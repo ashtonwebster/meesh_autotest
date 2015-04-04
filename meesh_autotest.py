@@ -28,6 +28,9 @@ for x in range(int(sys.argv[1]), int(sys.argv[2])):
     tree = html.fromstring(page.text)
     filename = (tree.xpath('/html/body/div[2]/div/h4[1]/text()')[0].split("Uploaded As: ")[1])
     input_filename = "input/" + filename
+    #check if input already exists
+    if (os.path.isfile(input_filename)):
+	   input_filename += "_dup"
     #print filename
     input = tree.xpath('//div[@class="container theme-showcase"]/div[@class="jumbotron"]/pre/text()')[0]
     #print input[0]
@@ -36,6 +39,9 @@ for x in range(int(sys.argv[1]), int(sys.argv[2])):
     f.close()
 
     output_filename = "output/" + filename
+    if (os.path.isfile(output_filename)):
+	   output_filename += "_dup"
+
     output = tree.xpath('/html/body/div[2]/div/textarea/text()')[0]
     #print output
     f = open(output_filename, 'w')
