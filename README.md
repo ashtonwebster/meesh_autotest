@@ -38,6 +38,8 @@ I wrote some java code to use the results you get from this in the java_tests_dr
 
 Note: I haven't really tested these instructions.  You may have to play around with them.  Please post problems in the "Issues" tab on github for this project.
 
+DISCLAIMER: RunOthersInputs requires the apache commons library FileUtils.  **Including this library will cause your code to not compile, and hence fail every test on the submit server.**.  My solution was to build a jar using Eclipse (File->Export->Jar) and exclude the offending tests, then submit using a file upload.  **You will have to find a way to exclude the files which import FileUtils (which is just a few of these tests) in order to submit to the submit server!**
+
 0.  **AvlG tests.**
 You are probably going to have to play around with the imports to get these to work for your code.  These include a fuzzer (generates random inputs and function calls) among some other small tests.  
 
