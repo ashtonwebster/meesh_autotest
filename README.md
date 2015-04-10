@@ -8,16 +8,16 @@ input and output for an arbitrary range of canonical tests and download them to 
 This code is not perfect and was written in about 20 minutes.  It is liable to destroy your computer, your family, and (worst of
 all) your directory structure, so use with care.
 
-##Instructions 
+##Instructions
 0. **Clone the repository.**
 
   `git clone https://github.com/ashtonwebster/meesh_autotest.git`
 
 0. **Install python dependencies.**
-```
-sudo pip install requests
-sudo pip install lxml
-```
+  ```
+  sudo pip install requests
+  sudo pip install lxml
+  ```
 0. **Figure out what id's you want.**
 
   Let's say that you want to get the most recent 10 ids.  Go to the canonical and click on the most recent submission:
