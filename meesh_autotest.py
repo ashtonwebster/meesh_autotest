@@ -27,10 +27,9 @@ for x in range(int(sys.argv[1]), int(sys.argv[2])):
     page = requests.get('https://cmsc420.cs.umd.edu/meeshquest/part2/input/' + str(x), verify=False)
     tree = html.fromstring(page.text)
     filename = (tree.xpath('/html/body/div[2]/div/h4[1]/text()')[0].split("Uploaded As: ")[1])
-    input_filename = "input/" + filename
-    #check if input already exists
-    if (os.path.isfile(input_filename)):
-	   input_filename += "_dup"
+
+    input_filename = "input/" + str(x) + "_" + filename
+
     #print filename
     input = tree.xpath('//div[@class="container theme-showcase"]/div[@class="jumbotron"]/pre/text()')[0]
     #print input[0]
@@ -38,9 +37,7 @@ for x in range(int(sys.argv[1]), int(sys.argv[2])):
     f.write(input)
     f.close()
 
-    output_filename = "output/" + filename
-    if (os.path.isfile(output_filename)):
-	   output_filename += "_dup"
+    output_filename = "output/" + str(x) + "_" + filename
 
     output = tree.xpath('/html/body/div[2]/div/textarea/text()')[0]
     #print output
