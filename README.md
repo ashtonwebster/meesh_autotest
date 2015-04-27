@@ -1,8 +1,12 @@
 # meesh_autotest
 
+** Approved by Meesh: https://piazza.com/class/i5ad9u1orn6r?cid=269 **
+
 The canonical output for the 420 project shows the most recent 10 submissions.  But sometimes you want to get all of them,
 and you don't want to have to copy-paste a hundred times to get them.  This program will (hopefully?) pull down the
 input and output for an arbitrary range of canonical tests and download them to two new directories (input/ and output/).
+
+The java test drivers then allow you to run every canonical test on your own code and view the differences.  They also provide several avl tree tests.
 
 ##Warning
 This code is not perfect and was written in about 20 minutes.  It is liable to destroy your computer, your family, and (worst of
